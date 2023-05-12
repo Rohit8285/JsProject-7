@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Speech</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            text-transform: capitalize;
+            color: #000;
+            background-color: #00DBDE;
+            background-image: linear-gradient(90deg, #00DBDE 0%, #FC00FF 100%);
+            overflow: hidden;
+        }
+
+        h1 {
+            font-style: italic;
+            font-size: 5rem;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        h1:hover {
+            color: #f6ff00;
+            text-shadow: 3px 3px 8px rgb(4, 16, 246);
+        }
+
+        div {
+            text-align: center;
+        }
+
+        textarea {
+            font-size: 20px;
+            text-transform: capitalize;
+            border-radius: 15px;
+            outline: none;
+            background-color: rgb(221, 221, 218);
+        }
+
+        textarea:hover {
+            box-shadow: 5px 5px 10px grey;
+            border: none;
+        }
+
+        button {
+            font-size: 25px;
+            text-align: center;
+            text-transform: capitalize;
+            margin-top: 20px;
+            padding: 12px 40px;
+            border-radius: 10px;
+            border: none;
+            background-color: rgb(255, 39, 104);
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #ff0b0b;
+            box-shadow: 2px 2px 5px rgb(240, 255, 37);
+        }
+
+        @media screen and (max-width:450px) {
+            body {
+                overflow: hidden;
+            }
+
+            h1 {
+                font-size: 3.4rem;
+                text-align: center;
+            }
+
+            textarea {
+                max-width: 280px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h1>text to speak</h1>
+    <div><textarea cols="30" rows="10"></textarea></div>
+    <div><button>speak</button></div>
+
+    <script>
+        let buttonEl = document.querySelector("button");
+        let TextEl = document.querySelector("textarea");
+        buttonEl.addEventListener("click", () => {
+            let utterance = new SpeechSynthesisUtterance(TextEl.value);
+            speechSynthesis.speak(utterance);
+        })
+    </script>
+</body>
+
+</html>
